@@ -1,2 +1,3 @@
-# cv2-examples-c-
-Examples of OpenCV in C++ I wrote a long time ago
+# Examples of OpenCV in C++
+
+I wrote this a long time ago

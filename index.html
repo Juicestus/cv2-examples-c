@@ -1,0 +1,59 @@
+<h1>OpenCV2 C++ : My Experience</h1>
+<h2>By <a href="https://www.gtsbr.org/">Justus Languell</a></h2>
+
+<h3>
+	<a href="https://docs.opencv.org/master/d9/df8/tutorial_root.html">Master Docs</a>
+</h3>
+
+<h2>Intro</h2>
+<h4>
+	<a href="https://docs.opencv.org/master/df/d65/tutorial_table_of_content_introduction.html">Intro Docs</a>
+</h4>
+<h3>Install</h3>
+<ul>
+	<li>
+		<p>
+			<a href="https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html">Compile on Linux</a>
+		</p>
+	</li>
+	<li>
+		<p>
+			<a href="https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html">Compile on MacOS</a>
+		</p>
+	</li>
+</ul>
+
+<h3>Build Projects</h3>
+<ul>
+	<li>
+		<p>
+			<a href="https://docs.opencv.org/master/db/df5/tutorial_linux_gcc_cmake.html">Build with GCC (CLang) and CMake</a>
+		</p>
+	</li>
+</ul>
+
+<p>
+	Here is a little script to generate project folders and CMakeLists.txt. <br>
+	Run with <code>$ ./init &lt;name_of_dir&gt; </code> (Filename is <code>init</code>)
+	<code>
+	<pre>
+    #!/bin/bash
+
+    # Really shitty shell script to init a new project file
+    # By Justus Languell, 2021
+    # Not exacly proud of it tho /:
+
+    mkdir $1
+
+	echo cmake_minimum_required\(VERSION 2.8\) > $1/CMakeLists.txt
+	echo project\( DisplayImage \) >> $1/CMakeLists.txt
+	echo find_package\( OpenCV REQUIRED \) >> $1/CMakeLists.txt
+	echo include_directories\( \${OpenCV_INCLUDE_DIRS} \) >> $1/CMakeLists.txt
+	echo add_executable\( $1 $1.cpp\) >> $1/CMakeLists.txt
+	echo target_link_libraries\( $1 \${OpenCV_LIBS} \) >> $1/CMakeLists.txt
+
+	echo "// This is the main file" > $1/$1.cpp
+	cd $1
+	</pre>
+	</code>
+</p>

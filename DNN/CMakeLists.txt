@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.8)
+project( DisplayImage )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+include_directories( ${Protobuf_INCLUDE_DIR} )
+add_executable( DNN DNN.cpp)
+target_link_libraries( DNN ${OpenCV_LIBS} )
